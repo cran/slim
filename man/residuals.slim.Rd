@@ -18,4 +18,3 @@ a vector of model residuals.
 \description{
 Extract Model Residuals from Singular Linear Model
 }
-

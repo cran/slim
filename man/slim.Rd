@@ -51,4 +51,3 @@ if(require("jmcm")) {
   summary(slim_fit, empirical = FALSE)
 }
 }
-

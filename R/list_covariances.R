@@ -26,7 +26,7 @@ list_covariances.character <- function(obj, t) {
 		pascal = lapply(t, function(ti) {
 			mi <- length(ti)
 			outer(1:mi, 1:mi, function(i, j) {
-				choose(i + j - 1, i - 1)
+				choose(i + j - 2, i - 1)
 			})
 		}))
 }

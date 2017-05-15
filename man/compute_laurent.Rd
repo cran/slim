@@ -21,4 +21,3 @@ exponent -1, and W[, , 2] corresponds to the exponent 0.
 This function computes the first two terms of the Laurent expansion of the
 inverse of a linear matrix function.
 }
-

@@ -23,4 +23,3 @@ estimates.
 \description{
 'vcov' method for class 'slim'.
 }
-

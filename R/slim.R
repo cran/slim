@@ -52,7 +52,7 @@ compute_laurent <- function(V, zapsmall = TRUE) {
 #' dimensions of y.
 #' @param y list of response vectors, one for each subject.
 #' @return a list with components coefficients (the limiting solution),
-#' residuals, fited_values, vcov_empirical and vcov_modelled. 
+#' residuals, fitted_values, vcov_empirical and vcov_modelled. 
 fit_slim <- function(x, V, y) {
 	p <- dim(x[[1]])[2]
 	W <- lapply(V, compute_laurent)
@@ -133,6 +133,7 @@ fit_slim <- function(x, V, y) {
 slim <- function(formula, data, covariance = "randomwalk", limit = ~ 1, 
 	contrasts = NULL) {
 	cl <- match.call()
+  if(!haskey(data)) stop("\'data\' must be a *keyed* \'data.table\'.")
 	i <- data[[key(data)[1]]]
 	i <- factor(i, levels = unique(i)) # to preserve the order in the data
 	t <- split(data[[key(data)[2]]], i)

@@ -3,9 +3,9 @@
 \name{list_covariances}
 \alias{list_covariances}
 \alias{list_covariances.character}
+\alias{list_covariances.list}
 \alias{list_covariances.function}
 \alias{list_covariances.jmcmMod}
-\alias{list_covariances.list}
 \alias{list_covariances.lmerMod}
 \title{List Covariance Matrices for Every Subject}
 \usage{
@@ -33,4 +33,3 @@ a list containing covariance matrices of appropriate dimensions
 This function is generic, and methods exists for character, list, function,
 and various model fit classes.
 }
-

@@ -16,4 +16,3 @@ should be used unless covariances have been well modelled.}
 \description{
 Methods for Singular Linear Model Fits
 }
-

@@ -29,4 +29,3 @@ limits for each parameter.
 \description{
 Confidence Intervals for Model Parameters from Singular Linear Model
 }
-

@@ -116,7 +116,7 @@ residuals.slim <- function(object, ...) {
 #' @return an object with class c("slim_summary", "slim") and, in addition to
 #' the usual 'slim' components, coefficient_matrix (the matrix of estimated
 #' coefficients, standard errors, z- and p-values) and empirical (logical
-#' inidicating if empirical standard errors have been used)
+#' indicating if empirical standard errors have been used)
 #' @export
 summary.slim <- function(object, empirical = TRUE, ...) {
 	est <- coef.slim(object)

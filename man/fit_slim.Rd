@@ -17,11 +17,10 @@ dimensions of y.}
 }
 \value{
 a list with components coefficients (the limiting solution),
-residuals, fited_values, vcov_empirical and vcov_modelled.
+residuals, fitted_values, vcov_empirical and vcov_modelled.
 }
 \description{
 This function computes the limiting solution to the estimating equation
 sum(x' V^{-1} (y - x beta)) = 0 as the covariance V tends from V[, , 1] +
 V[, , 2] to V[, , 1].
 }
-

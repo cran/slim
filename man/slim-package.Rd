@@ -19,4 +19,3 @@ that of lm.
 \seealso{
 \code{\link{slim}}
 }
-

@@ -21,4 +21,3 @@ a vector of model predictions.
 \description{
 Model Predictions from Singular Linear Model
 }
-

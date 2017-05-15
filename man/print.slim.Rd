@@ -33,4 +33,3 @@ x, invisibly.
 'print' methods for class 'slim' and 'slim_summary'. 'print.slim_summary'
 differs only in its default value of 'empirical'.
 }
-

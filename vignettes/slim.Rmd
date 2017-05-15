@@ -23,7 +23,7 @@ references:
 # Introduction
 
 The `slim` package fits singular linear models to longitudinal data. In
-particular, for given sets $\{x\}$ ($p \times m$ design matrices, where $m$ is
+particular, for given sets $\{x\}$ ($m \times p$ design matrices, where $m$ is
 the number of observations for a particular subject), $\{V_{0}\}$ ($m \times m$
 possibly *singular* covariance matrices), $\{V_{*}\}$ ($m \times m$
 positive-definite covariance matrices), and $\{y\}$ (length $m$ vectors
@@ -142,8 +142,8 @@ unit-variance increments, that is $\mathrm{cov}(y_{j}, y_{k}) = \min(j, k)$
 , but but other options include the identity matrix (`covariance
 = "identity"`), the covariance of Brownian motion ($\mathrm{cov}(y_{j}, y_{k})
 = \min(t_{j}, t_{k})$, `covariance = "brownian"`) or the symmetric Pascal
-matrix given by $$\mathrm{cov}(y_{j}, y_{k}) = \left(\begin{array}{c}j + k \\
-j\end{array}\right)$$and specified by `covariance = "pascal"`. All these
+matrix given by $$\mathrm{cov}(y_{j}, y_{k}) = \left(\begin{array}{c}j + k - 2 \\
+j - 1\end{array}\right)$$and specified by `covariance = "pascal"`. All these
 matrices are employed for their *structure* and make no reference to the actual
 variance of the data. When using such working covariance structures, therefore,
 it is important to use empirical standard errors to obtain reasonable estimates
@@ -151,9 +151,9 @@ of parameter uncertainty:
 
 ```{r}
 vcov(slim_basic_fit)
-vcov(slim_basic_fit, empirical = FALSE)
+vcov(slim_basic_fit, empirical = FALSE) # a bad idea for unmodelled covariances!
 summary(slim_basic_fit)
-summary(slim_basic_fit, empirical = FALSE)
+summary(slim_basic_fit, empirical = FALSE) # still a bad idea
 ```
 
 Use of `empirical = FALSE` is intended for cases when the covariance $V_{*}$
@@ -171,7 +171,7 @@ lmer_fit <- lmer(renalfn ~ group + month + (1 + month | id), dialysis)
 slim_lmer_fit <- slim(renalfn ~ group + month, dialysis, covariance = lmer_fit)
 
 summary(slim_lmer_fit)
-summary(slim_lmer_fit, empirical = FALSE)
+summary(slim_lmer_fit, empirical = FALSE) # this now makes sense
 ```
 
 The `jmcm` function uses a more comprehensive formula object to specify the
@@ -203,8 +203,8 @@ print(p <- p + geom_line(aes(y = slim_lmer), data = dialysis[group_reps],
 ```
 
 There is reasonable consistency across all these `slim` model fits. It is
-possible to demonstrate sensitivity to this choice using more extreme
-covariance structures (the Pascal matrix is very extreme):
+possible to demonstrate sensitivity to choice of covariance using more extreme
+structures (the Pascal matrix is very extreme):
 
 ```{r, results = "hide"}
 slim_pascal_fit <- slim(renalfn ~ group + month, dialysis,
@@ -217,6 +217,20 @@ dialysis[, slim_pascal := fitted(slim_pascal_fit)]
 print(p <- p + geom_line(aes(y = slim_pascal), data = dialysis[group_reps],
                 colour = "cyan"))
 ```
+Notice the greatly increased standard error associated with the time trend in this fit:
+```{r}
+extract_se <- function(fit) sqrt(diag(vcov(fit)))
+sapply(list(se_basic = slim_basic_fit, se_pascal = slim_pascal_fit), extract_se)
+```
+
+This sensitivity is indicative of the bias-variance trade-off associated with
+choice of covariance structure. Roughly, the Pascal structure allows the
+timings of observations to depend on a random intercept, random slope, random
+curvature and so on to higher derivatives as far as the number of observations
+on an individual allow. This consistency across a wider class of models comes
+at the price of greatly increased variance, although observe that the
+'baseline' parameters of the three groups are basically unaffected, relating as
+they do to the time when all individuals remain in the study.
 
 We end on this cautionary note: it does matter what covariance matrices you
 choose! Our (limited) experience suggests that random walk or well-modelled

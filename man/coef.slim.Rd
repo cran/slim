@@ -18,4 +18,3 @@ a vector of model coefficients.
 \description{
 Extract Model Coefficients from Singular Linear Model
 }
-

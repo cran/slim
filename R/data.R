@@ -14,6 +14,6 @@
 #' @source This data is derived from the Global Fluid Study. This part of the
 #' study was led by Dr James Chess and Prof. Nick Topley.
 #' @references Lambie, M., Chess, J. et al. (2013). Independent effects of
-#' systemic and pertioneal inflammation on peritoneal dialysis survival. J Am
+#' systemic and peritoneal inflammation on peritoneal dialysis survival. J Am
 #' Soc Nephrol, 24, 2071--80.
 "dialysis"

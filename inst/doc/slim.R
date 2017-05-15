@@ -52,9 +52,9 @@ z %*% t(z)
 
 ## ------------------------------------------------------------------------
 vcov(slim_basic_fit)
-vcov(slim_basic_fit, empirical = FALSE)
+vcov(slim_basic_fit, empirical = FALSE) # a bad idea for unmodelled covariances!
 summary(slim_basic_fit)
-summary(slim_basic_fit, empirical = FALSE)
+summary(slim_basic_fit, empirical = FALSE) # still a bad idea
 
 ## ------------------------------------------------------------------------
 library(lme4)
@@ -63,7 +63,7 @@ lmer_fit <- lmer(renalfn ~ group + month + (1 + month | id), dialysis)
 slim_lmer_fit <- slim(renalfn ~ group + month, dialysis, covariance = lmer_fit)
 
 summary(slim_lmer_fit)
-summary(slim_lmer_fit, empirical = FALSE)
+summary(slim_lmer_fit, empirical = FALSE) # this now makes sense
 
 ## ------------------------------------------------------------------------
 library(jmcm)
@@ -94,4 +94,8 @@ dialysis[, slim_pascal := fitted(slim_pascal_fit)]
 ## ------------------------------------------------------------------------
 print(p <- p + geom_line(aes(y = slim_pascal), data = dialysis[group_reps],
                 colour = "cyan"))
+
+## ------------------------------------------------------------------------
+extract_se <- function(fit) sqrt(diag(vcov(fit)))
+sapply(list(se_basic = slim_basic_fit, se_pascal = slim_pascal_fit), extract_se)
 

@@ -18,4 +18,3 @@ a vector of fitted values from the model fit.
 \description{
 Extract Model Fitted Values from Singular Linear Model
 }
-
