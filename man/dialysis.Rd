@@ -4,14 +4,16 @@
 \name{dialysis}
 \alias{dialysis}
 \title{Renal Function in Three Groups of Peritoneal Dialysis Patients}
-\format{A data.table with 116 rows and 5 variables:
+\format{
+A data.table with 116 rows and 5 variables:
 \tabular{ll}{
 id \tab patient identifier, a character string \cr
 group \tab treatment group identifier, a character string \cr
 vintage \tab days since starting dialysis, an integer \cr
 month \tab month of observation, an integer \cr
 renalfn \tab renal function of the patient at that month, numeric \cr
-}}
+}
+}
 \source{
 This data is derived from the Global Fluid Study. This part of the
 study was led by Dr James Chess and Prof. Nick Topley.

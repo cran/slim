@@ -5,9 +5,13 @@
 \alias{print.slim_summary}
 \title{Print 'slim' Objects}
 \usage{
-\method{print}{slim}(x, empirical = TRUE, digits = max(3,
-  getOption("digits") - 3), signif.stars = getOption("show.signif.stars"),
-  ...)
+\method{print}{slim}(
+  x,
+  empirical = TRUE,
+  digits = max(3, getOption("digits") - 3),
+  signif.stars = getOption("show.signif.stars"),
+  ...
+)
 
 \method{print}{slim_summary}(x, empirical = x$empirical, ...)
 }
@@ -19,12 +23,12 @@ used in estimating standard errors (the default). Empirical standard errors
 should be used unless covariances have been well modelled.}
 
 \item{digits}{minimal number of \emph{significant} digits, see
-    \code{\link{print.default}}.}
+    \code{\link[base]{print.default}}.}
 
 \item{signif.stars}{logical. If \code{TRUE}, \sQuote{significance stars}
     are printed for each coefficient.}
 
-\item{...}{arguments passed to or from other methods.}
+\item{...}{further arguments passed to or from other methods.}
 }
 \value{
 x, invisibly.

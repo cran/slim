@@ -1,20 +1,3 @@
-#' Singular linear models for longitudinal data.
-#'
-#' The slim package fits singular linear models to longitudinal data. Singular
-#' linear models are useful when the number, or timing, of longitudinal
-#' observations may be informative about the observations themselves. They are
-#' described in Farewell (2010) <doi:10.1093/biomet/asp068>, and are extensions
-#' of the linear increments model of Diggle et al. (2007)
-#' <doi:10.1111/j.1467-9876.2007.00590.x> to general longitudinal data.
-#'
-#' The most important function is slim, whose formula interface is similar to
-#' that of lm.
-#' @docType package
-#' @name slim-package
-#' @seealso \code{\link{slim}}
-#' @import data.table
-NULL
-
 #' Laurent Expansion of Inverse of Linear Matrix Function 
 #'
 #' This function computes the first two terms of the Laurent expansion of the
@@ -43,7 +26,7 @@ compute_laurent <- function(V, zapsmall = TRUE) {
 #' Fitter Function for Singular Linear Models
 #'
 #' This function computes the limiting solution to the estimating equation
-#' sum(x' V^{-1} (y - x beta)) = 0 as the covariance V tends from V[, , 1] +
+#' sum(x' V^(-1) (y - x beta)) = 0 as the covariance V tends from V[, , 1] +
 #' V[, , 2] to V[, , 1]. 
 #'
 #' @param x list of design matrices, one for each subject, all having the same

@@ -15,7 +15,7 @@ list_covariances(obj, t)
 
 \method{list_covariances}{list}(obj, t)
 
-\method{list_covariances}{function}(obj, t)
+\method{list_covariances}{`function`}(obj, t)
 
 \method{list_covariances}{jmcmMod}(obj, t)
 

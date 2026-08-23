@@ -4,8 +4,7 @@
 \alias{slim}
 \title{Fit Singular Linear Models}
 \usage{
-slim(formula, data, covariance = "randomwalk", limit = ~1,
-  contrasts = NULL)
+slim(formula, data, covariance = "randomwalk", limit = ~1, contrasts = NULL)
 }
 \arguments{
 \item{formula}{a model formula for the fixed effects}

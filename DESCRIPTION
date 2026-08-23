@@ -1,8 +1,8 @@
 Package: slim
 Title: Singular Linear Models for Longitudinal Data
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("Daniel", "Farewell",
-    email = "farewelld@cf.ac.uk", role = c("aut", "cre"))
+    email = "farewelld@cardiff.ac.uk", role = c("aut", "cre"))
 Description: Fits singular linear models to longitudinal data. Singular linear
     models are useful when the number, or timing, of longitudinal observations
     may be informative about the observations themselves. They are described
@@ -15,11 +15,12 @@ Suggests: lme4 (>= 1.1), jmcm (>= 0.1.6.0), gee (>= 4.13-19), ggplot2
         (>= 2.1.0), testthat (>= 1.0.2), knitr, rmarkdown
 License: GPL-3
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
+Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2017-05-15 06:33:18 UTC; daniel
+Packaged: 2026-08-19 16:19:18 UTC; daniel
 Author: Daniel Farewell [aut, cre]
-Maintainer: Daniel Farewell <farewelld@cf.ac.uk>
+Maintainer: Daniel Farewell <farewelld@cardiff.ac.uk>
 Repository: CRAN
-Date/Publication: 2017-05-15 06:39:33 UTC
+Date/Publication: 2026-08-23 10:40:10 UTC

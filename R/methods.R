@@ -1,17 +1,6 @@
-#' Methods for Singular Linear Model Fits
-#'
-#' @name slim.methods
-#' @param object an object of class 'slim', usually, a result of a call to
-#' 'slim'. 
-#' @param empirical logical indicating if empirical variances of y should be
-#' used in estimating standard errors (the default). Empirical standard errors
-#' should be used unless covariances have been well modelled.
-#' @param ... arguments passed to or from other methods.
-NULL
-
 #' Extract Model Coefficients from Singular Linear Model
 #'
-#' @inheritParams slim.methods
+#' @template slim-methods
 #' @return a vector of model coefficients.
 #' @export
 coef.slim <- function(object, ...) {
@@ -20,7 +9,8 @@ coef.slim <- function(object, ...) {
 
 #' Confidence Intervals for Model Parameters from Singular Linear Model
 #' 
-#' @inheritParams slim.methods
+#' @template slim-methods
+#' @template empirical 
 #' @inheritParams stats::confint
 #' @return A matrix (or vector) with columns giving lower and upper confidence
 #' limits for each parameter.
@@ -46,7 +36,7 @@ confint.slim <- function(object, parm, level = 0.95, empirical = TRUE, ...) {
 
 #' Extract Model Fitted Values from Singular Linear Model
 #'
-#' @inheritParams slim.methods
+#' @template slim-methods
 #' @return a vector of fitted values from the model fit.
 #' @export
 fitted.slim <- function(object, ...) {
@@ -55,7 +45,7 @@ fitted.slim <- function(object, ...) {
 
 #' Model Predictions from Singular Linear Model
 #'
-#' @inheritParams slim.methods
+#' @template slim-methods 
 #' @inheritParams stats::predict.lm
 #' @return a vector of model predictions.
 #' @export
@@ -76,7 +66,7 @@ predict.slim <- function(object, newdata, ...) {
 #' differs only in its default value of 'empirical'.
 #'
 #' @param x an object of class 'slim' or 'slim_summary', as appropriate.
-#' @inheritParams slim.methods
+#' @template empirical 
 #' @inheritParams base::print
 #' @inheritParams stats::summary.lm
 #' @return x, invisibly.  
@@ -101,7 +91,7 @@ print.slim_summary <- function(x, empirical = x$empirical, ...) {
 
 #' Extract Model Residuals from Singular Linear Model 
 #' 
-#' @inheritParams slim.methods
+#' @template slim-methods 
 #' @return a vector of model residuals.
 #' @export
 residuals.slim <- function(object, ...) {
@@ -112,7 +102,8 @@ residuals.slim <- function(object, ...) {
 #'
 #' 'summary' method for class 'slim'.
 #'
-#' @inheritParams slim.methods
+#' @template slim-methods 
+#' @template empirical 
 #' @return an object with class c("slim_summary", "slim") and, in addition to
 #' the usual 'slim' components, coefficient_matrix (the matrix of estimated
 #' coefficients, standard errors, z- and p-values) and empirical (logical
@@ -136,7 +127,8 @@ summary.slim <- function(object, empirical = TRUE, ...) {
 #'
 #' 'vcov' method for class 'slim'.
 #'
-#' @inheritParams slim.methods
+#' @template slim-methods 
+#' @template empirical 
 #' @return a matrix of the estimated covariances between the parameter
 #' estimates.
 #' @export
