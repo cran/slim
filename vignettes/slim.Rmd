@@ -37,10 +37,11 @@ For a few more details you can consult @farewell2010. But for now let's load up
 the package and see how it works.
 
 ```{r}
+library(data.table)
 library(slim)
 ```
 
-You'll see that `data.table` is a required package. That's because the main
+You'll notice that `data.table` is an imported package. That's because the main
 `slim` modelling function expects to receive the data in the form of a keyed
 `data.table`, not just an ordinary `data.frame`. The dialysis data, included
 with the package, has two keys: `id` (the individual or subject identifier) and

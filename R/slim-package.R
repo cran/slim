@@ -11,7 +11,7 @@
 #' that of lm.
 #' @name slim-package
 #' @seealso \code{\link{slim}}
-#' @import data.table
+#' @importFrom data.table haskey key
 #' @keywords internal
 "_PACKAGE"
 

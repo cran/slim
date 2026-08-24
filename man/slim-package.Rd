@@ -20,7 +20,7 @@ that of lm.
 \code{\link{slim}}
 }
 \author{
-\strong{Maintainer}: Daniel Farewell \email{farewelld@cf.ac.uk}
+\strong{Maintainer}: Daniel Farewell \email{farewelld@cardiff.ac.uk}
 
 }
 \keyword{internal}

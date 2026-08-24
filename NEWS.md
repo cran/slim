@@ -1,3 +1,3 @@
-# slim 0.1.2
+# slim 0.1.3
 
-This version improves documentation.
+Now Imports data.table, rather than Depends on it.

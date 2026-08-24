@@ -1,4 +1,4 @@
-# slim 0.1.2
+# slim 0.1.3
 
 The slim package fits singular linear models to longitudinal data, particularly
 when there may be a relationship between the number and timings of the
